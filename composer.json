@@ -1,0 +1,44 @@
+{
+    "name": "ghtpr/galerie-ghtpr",
+    "type": "typo3-cms-extension",
+    "description": "Une super galerie d'image pour Typo 3 : projet DAWIN",
+    "authors": [
+        {
+            "name": "Robin Marius",
+            "role": "Developer"
+        },
+        {
+            "name": "Petit Quentin",
+            "role": "Developer"
+        },
+        {
+            "name": "Bastien Tebbani",
+            "role": "Developer"
+        },
+        {
+            "name": "Anthony Guichard",
+            "role": "Developer"
+        },
+        {
+            "name": "Charlie Hauselmann",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^8.7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ghtpr\\GalerieGhtpr\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ghtpr\\GalerieGhtpr\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "galerie_ghtpr": "self.version",
+        "typo3-ter/galerie-ghtpr": "self.version"
+    }
+}

@@ -1,0 +1,44 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Function</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<switchableControllerActions>
+						<TCEforms>
+							<label>Select function</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">Dernieres photos</numIndex>
+										<numIndex index="1">Image-&gt;latest</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">Derniers albums</numIndex>
+										<numIndex index="1">Album-&gt;latest</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">Liste albums</numIndex>
+										<numIndex index="1">Album-&gt;list;Album-&gt;show;Album-&gt;search</numIndex>
+									</numIndex>
+									<numIndex index="3">
+										<numIndex index="0">Liste auteurs</numIndex>
+										<numIndex index="1">Author-&gt;list;Author-&gt;show</numIndex>
+									</numIndex>
+									<numIndex index="4">
+										<numIndex index="0">Liste categories</numIndex>
+										<numIndex index="1">Category-&gt;list;Category-&gt;show</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</switchableControllerActions>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

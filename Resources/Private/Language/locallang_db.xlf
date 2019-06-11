@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-06-11T12:51:40Z" product-name="galerie_ghtpr">
+		<header/>
+		<body>
+			<trans-unit id="tx_galerieghtpr_domain_model_image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_image.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_image.width">
+				<source>Width</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_image.height">
+				<source>Height</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_image.place">
+				<source>Place</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_image.file">
+				<source>File</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_image.shoot_date">
+				<source>Shoot Date</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_image.publication_date">
+				<source>Publication Date</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_image.tags">
+				<source>Tags</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_album">
+				<source>Album</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_album.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_album.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_album.published_date">
+				<source>Published Date</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_album.images">
+				<source>Images</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_album.categories">
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_album.tags">
+				<source>Tags</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_category.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_category.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_tag">
+				<source>Tag</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_tag.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_author">
+				<source>Author</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_author.lastname">
+				<source>Lastname</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_author.firstname">
+				<source>Firstname</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_author.job">
+				<source>Job</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_author.address">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_author.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_author.phone_number">
+				<source>Phone Number</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_author.website">
+				<source>Website</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_author.biography">
+				<source>Biography</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_author.albums">
+				<source>Albums</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_author.social_networks">
+				<source>Social Networks</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_socialnetwork">
+				<source>Social Network</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_socialnetwork.identifier">
+				<source>Identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_galerieghtpr_domain_model_socialnetwork.social_type">
+				<source>Social Type</source>
+			</trans-unit>
+			<trans-unit id="tx_galerie_ghtpr_pi1.name">
+				<source>galeriePhoto_ghtpr</source>
+			</trans-unit>
+			<trans-unit id="tx_galerie_ghtpr_pi1.description">
+				<source>Galerie de photos</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

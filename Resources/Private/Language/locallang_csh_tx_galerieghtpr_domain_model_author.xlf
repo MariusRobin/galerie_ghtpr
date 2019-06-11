@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-06-11T12:51:40Z" product-name="galerie_ghtpr">
+		<header/>
+		<body>
+			<trans-unit id="lastname.description">
+				<source>Nom de famille</source>
+			</trans-unit>
+			<trans-unit id="firstname.description">
+				<source>Prénom</source>
+			</trans-unit>
+			<trans-unit id="job.description">
+				<source>Travail</source>
+			</trans-unit>
+			<trans-unit id="address.description">
+				<source>Adresse</source>
+			</trans-unit>
+			<trans-unit id="email.description">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="phone_number.description">
+				<source>Numéro de téléphone</source>
+			</trans-unit>
+			<trans-unit id="website.description">
+				<source>Site internet</source>
+			</trans-unit>
+			<trans-unit id="biography.description">
+				<source>Biographie</source>
+			</trans-unit>
+			<trans-unit id="albums.description">
+				<source>Albums</source>
+			</trans-unit>
+			<trans-unit id="social_networks.description">
+				<source>Réseau sociaux</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
