@@ -22,6 +22,23 @@ namespace Ghtpr\GalerieGhtpr\Controller;
 class AuthorController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
     /**
+     * authorRepository
+     *
+     * @var \Ghtpr\GalerieGhtpr\Domain\Repository\AuthorRepository
+     * @inject
+     */
+    protected $authorRepository = null;
+
+    /**
+     * albumRepository
+     *
+     * @var \Ghtpr\GalerieGhtpr\Domain\Repository\AlbumRepository
+     * @inject
+     */
+    protected $albumRepository = null;
+
+
+    /**
      * action list
      *
      * @return void
