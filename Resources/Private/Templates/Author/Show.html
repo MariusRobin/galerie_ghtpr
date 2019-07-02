@@ -65,7 +65,7 @@
 		<div class="infolabel">Liste des albums de cet auteur :</div>
 		<div>
 			<f:for each="{author.albums}" as="album">
-				<li>{album.name}</li>
+				<li><f:link.action action="show" pageUid="{settings.detailAlbum}" controller="Album" arguments="{album : album}">{album.name}</f:link.action></li>
 			</f:for>
 		</div>
 	</f:section>

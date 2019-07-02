@@ -37,6 +37,7 @@ class AuthorController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      */
     protected $albumRepository = null;
 
+
     /**
      * action list
      *
@@ -57,7 +58,5 @@ class AuthorController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     public function showAction(\Ghtpr\GalerieGhtpr\Domain\Model\Author $author)
     {
         $this->view->assign('author', $author);
-        //$albums = $this->albumRepository->getAlbumByAuthor($author);
-        //$this->view->assign('albums', $albums);
     }
 }
