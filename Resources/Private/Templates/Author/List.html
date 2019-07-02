@@ -1,52 +1,112 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-	<f:layout name="Default" />
+<f:layout name="Default"/>
 
-	This Template is responsible for creating a table of domain objects.
+This Template is responsible for creating a table of domain objects.
 
-	If you modify this template, do not forget to change the overwrite settings
-	in /Configuration/ExtensionBuilder/settings.yaml:
-	  Resources:
-		Private:
-		  Templates:
-			List.html: keep
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+List.html: keep
 
-	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
-	<f:section name="content">
-		<h1>Listing for Author</h1>
+<f:section name="content">
+    <style>
+        .f3-widget-paginator {
+            display: inline-block;
+            border-radius: 4px;
+            margin: 20px 0px;
+            padding-left: 0px;
+        }
 
-		<f:flashMessages />
+        .f3-widget-paginator > li {
+            display: inline;
+        }
 
-		<table  class="tx_galerieghtpr" >
-			<tr>
-				<th><f:translate key="tx_galerieghtpr_domain_model_author.lastname" /></th>
-				<th><f:translate key="tx_galerieghtpr_domain_model_author.firstname" /></th>
-				<th><f:translate key="tx_galerieghtpr_domain_model_author.job" /></th>
-				<th><f:translate key="tx_galerieghtpr_domain_model_author.address" /></th>
-				<th><f:translate key="tx_galerieghtpr_domain_model_author.email" /></th>
-				<th><f:translate key="tx_galerieghtpr_domain_model_author.phone_number" /></th>
-				<th><f:translate key="tx_galerieghtpr_domain_model_author.website" /></th>
-				<th><f:translate key="tx_galerieghtpr_domain_model_author.biography" /></th>
-				<th> </th>
-				<th> </th>
-			</tr>
+        .f3-widget-paginator > li > a,
+        .f3-widget-paginator > li.current {
+            position: relative;
+            float: left;
+            padding: 6px 12px;
+            margin-left: -1px;
+            text-decoration: none;
+            border: 1px solid #DDD;
+            background-color: #FFF;
+            color: #FF8700;
+        }
 
-			<f:for each="{authors}" as="author">
-				<tr>
-					<td><f:link.action action="show" arguments="{author : author}"> {author.lastname}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{author : author}"> {author.firstname}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{author : author}"> {author.job}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{author : author}"> {author.address}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{author : author}"> {author.email}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{author : author}"> {author.phoneNumber}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{author : author}"> {author.website}</f:link.action></td>
-					<td><f:link.action action="show" arguments="{author : author}"> {author.biography}</f:link.action></td>
-					<td><f:link.action action="edit" arguments="{author : author}">Edit</f:link.action></td>
-					<td><f:link.action action="delete" arguments="{author : author}">Delete</f:link.action></td>
-				</tr>
-			</f:for>
-		</table>
+        .f3-widget-paginator > li.current,
+        .f3-widget-paginator > li > a:hover,
+        .f3-widget-paginator > li > a:focus {
+            text-decoration: underline;
+            background-color: #EEE;
+        }
 
-		<f:link.action action="new">New Author</f:link.action>
-	</f:section>
+        .f3-widget-paginator > li:first-child > a,
+        .f3-widget-paginator > li.current:first-child {
+            margin-left: 0px;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .f3-widget-paginator > li:last-child > a,
+        .f3-widget-paginator > li.current:last-child {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+        #div {
+            width: 100%;
+            margin: 30px;
+        }
+
+        #div ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #div li {
+            font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+            border-bottom: 1px solid #ccc;
+        }
+
+        #div li:last-child {
+            border: none;
+        }
+
+        #div li a {
+            text-decoration: none;
+            color: #000;
+
+            -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+            -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+            -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+            -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+            transition: font-size 0.3s ease, background-color 0.3s ease;
+            width: 100%;
+            display: block;
+        }
+
+        #div li a:hover {
+            font-size: 30px;
+            background: #f6f6f6;
+        }
+    </style>
+    <h1>Liste des auteurs</h1>
+
+    <f:flashMessages/>
+    <f:widget.paginate objects="{authors}" as="paginatedAuthors"
+                       configuration="{itemsPerPage: 5, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 10}">
+        <div id="div">
+        <ul>
+            <f:for each="{paginatedAuthors}" as="author">
+                <li><f:link.action action="show" arguments="{author : author}"> {author.lastname} {author.firstname}</f:link.action></li>
+            </f:for>
+        </ul>
+        </div>
+        </table>
+    </f:widget.paginate>
+</f:section>
 </html>
