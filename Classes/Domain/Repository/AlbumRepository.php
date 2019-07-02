@@ -21,11 +21,58 @@ namespace Ghtpr\GalerieGhtpr\Domain\Repository;
  */
 class AlbumRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
+    /**
+     * search in albums
+     *
+     * @return QueryResultInterface|array
+     * @api
+     */
+    public function getLatest(int $nbAlbums = 5)
+    {
+        $query = $this->createQuery();
+        $query->setOrderings(
+            [
+                'publishedDate' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING
+            ]
+        );
+
+        $query->setLimit($nbAlbums);
+        return $query->execute();
+    }
+
     public function getAlbumByAuthor(\Ghtpr\GalerieGhtpr\Domain\Model\Author $author){
         $query = $this->createQuery();
         $query->matching($query->contains('author', $author));
         return $query->execute();
     }
+
+    public function search(AlbumSearch $search){
+        $query = $this->createQuery();
+        $constraints = [];
+
+        if ($search->getText()){
+            $words = explode(' ', $search->getText());
+            $props = ['name','description','images.name'];
+
+            foreach ($words as $word){
+                foreach ($props as $prop) {
+                    $constraintProp[] = $query->like($prop, '%' . $word. '%');
+                }
+            }
+            $constraints[] = $query->logicalOr($constraintProp);
+        }
+
+        if ($search->getCategory()){
+            $category = $search->getCategory();
+            $constraints[] = $query->contains('categories',$category);
+        }
+
+        if (count($constraints)){
+            $query->matching($query->logicalAnd($constraints));
+        }
+        return $query->execute();
+    }
+
     public function albumByCateg($categ)
     {
         $query = $this->createQuery();

@@ -1,19 +1,20 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
 
-<f:layout name="Default"/>
+	This Template is responsible for creating a table of domain objects.
 
-This Template is responsible for creating a table of domain objects.
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-Resources:
-Private:
-Templates:
-List.html: keep
+	If you modify this template, do not forget to change the overwrite settings
+	in /Configuration/ExtensionBuilder/settings.yaml:
+	  Resources:
+		Private:
+		  Templates:
+			List.html: keep
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
+    <f:render partial="Album/searchForm" arguments="{categories: categories, search: search}"/>
+
     <style>
         .f3-widget-paginator {
             display: inline-block;
@@ -81,7 +82,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
     <f:widget.paginate objects="{albums}" as="paginatedAlbums"
                        configuration="{itemsPerPage: 5, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 10}">
         <div class="main_container">
-            <f:for each="{albums}" as="album">
+            <f:for each="{paginatedAlbums}" as="album">
                 <div>
                     <f:link.action action="show" arguments="{album : album}">
                         <f:image src="EXT:galerie_ghtpr/Resources/Public/img/folder.png" alt="alt text" class="icon" />

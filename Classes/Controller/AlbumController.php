@@ -1,6 +1,9 @@
 <?php
 namespace Ghtpr\GalerieGhtpr\Controller;
 
+use Ghtpr\GalerieGhtpr\UseCase\Query\AlbumSearch;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+
 /***
  *
  * This file is part of the "galerie-photo-cms" Extension for TYPO3 CMS.
@@ -30,6 +33,14 @@ class AlbumController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     protected $albumRepository = null;
 
     /**
+     * categoryRepository
+     *
+     * @var \Ghtpr\GalerieGhtpr\Domain\Repository\CategoryRepository
+     * @inject
+     */
+    protected $categoryRepository = null;
+
+    /**
      * action list
      *
      * @return void
@@ -37,7 +48,9 @@ class AlbumController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     public function listAction()
     {
         $albums = $this->albumRepository->findAll();
-        $this->view->assign('albums', $albums);
+        $categories = $this->categoryRepository->findAll();
+        $search = new AlbumSearch();
+        $this->view->assignMultiple(['albums' => $albums, 'categories' => $categories, 'search' => $search]);
     }
 
     /**
@@ -62,12 +75,12 @@ class AlbumController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     }
 
     /**
-     * action search
-     *
-     * @return void
+     * @param AlbumSearch $search
      */
-    public function searchAction()
+    public function searchAction(AlbumSearch $search)
     {
-
+        $categories = $this->categoryRepository->findAll();
+        $albums = $this->albumRepository->search($search);
+        $this->view->assignMultiple(['albums' => $albums, 'categories' => $categories, 'search' => $search]);
     }
 }
