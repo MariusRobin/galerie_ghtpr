@@ -57,6 +57,21 @@ Otherwise your changes will be overwritten the next time you save the extension 
             border-top-right-radius: 4px;
             border-bottom-right-radius: 4px;
         }
+
+        button{
+            margin: 20px;
+        }
+
+        .main_container {
+            display: inline;
+            padding-top: 30px;
+        }
+
+        .icon{
+            width: 50px;
+            height: 50px;
+        }
+        
     </style>
     <h1>Listing for Album</h1>
 
@@ -65,42 +80,17 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
     <f:widget.paginate objects="{albums}" as="paginatedAlbums"
                        configuration="{itemsPerPage: 5, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 10}">
-        <table class="tx_galerieghtpr">
-            <tr>
-                <th>
-                    <f:translate key="tx_galerieghtpr_domain_model_album.name"/>
-                </th>
-                <th>
-                    <f:translate key="tx_galerieghtpr_domain_model_album.description"/>
-                </th>
-                <th>
-                    <f:translate key="tx_galerieghtpr_domain_model_album.published_date"/>
-                </th>
-                <th></th>
-                <th></th>
-            </tr>
-            <f:for each="{paginatedAlbums}" as="album">
-                <tr>
-                    <td>
-                        <f:link.action action="show" arguments="{album : album}"> {album.name}</f:link.action>
-                    </td>
-                    <td>
-                        <f:link.action action="show" arguments="{album : album}"> {album.description}</f:link.action>
-                    </td>
-                    <td>
-                        <f:link.action action="show" arguments="{album : album}"> {album.publishedDate ->
-                            f:format.date()}
-                        </f:link.action>
-                    </td>
-                    <td>
-                        <f:link.action action="edit" arguments="{album : album}">Edit</f:link.action>
-                    </td>
-                    <td>
-                        <f:link.action action="delete" arguments="{album : album}">Delete</f:link.action>
-                    </td>
-                </tr>
+        <div class="main_container">
+            <f:for each="{albums}" as="album">
+                <div>
+                    <f:link.action action="show" arguments="{album : album}">
+                        <f:image src="EXT:galerie_ghtpr/Resources/Public/img/folder.png" alt="alt text" class="icon" />
+                    </f:link.action>
+                    <f:link.action action="show" arguments="{album : album}"> {album.name}</f:link.action>
+                    <!--<f:link.action action="show" arguments="{album : album}"> {album.publishedDate -> f:format.date()}</f:link.action>-->
+                </div><br>
             </f:for>
-        </table>
+        </div>
     </f:widget.paginate>
 
 
