@@ -1,11 +1,17 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
-<f:form action="search" name="search" object="{search}" class="form-inline text-center">
-    <div class="form-group mx-sm-3 mb-2">
-        <f:form.textfield placeholder="Saisir..." property="text" />
-        <f:form.select name="category" options="{categories}" optionValueField="uid" optionLabelField="name" />
-    </div>
-    <f:form.submit class="btn btn-primary col-sm-offset-1" value="Rechercher" />
-</f:form>
+<div class="row">
+    <f:form action="search" name="search" object="{search}" class="form-inline text-center d-flex justify-content-around">
+        <div class="form-group">
+            <label for="text">Research into albums</label>
+            <f:form.textfield placeholder="type to search" property="text" type="text" name="text" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="categories">Category</label>
+            <f:form.select property="category" options="{categories}" optionValueField="uid" optionLabelField="name" class="form-control" name="categories"/>
+        </div>
+        <f:form.submit class="btn btn-primary" value="Rechercher" />
+    </f:form>
+</div>
 
 </html>

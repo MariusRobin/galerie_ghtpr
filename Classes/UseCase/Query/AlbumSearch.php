@@ -1,15 +1,21 @@
 <?php
 namespace Ghtpr\GalerieGhtpr\UseCase\Query;
 
-class AlbumSearch 
+use Ghtpr\GalerieGhtpr\Domain\Model\Category;
+
+class AlbumSearch
 {
     /**
      * text
      *
      * @var string
-     * @validate NotEmpty
      */
     protected $text = '';
+
+    /**
+     * @var Category
+     */
+    protected $category;
 
     /**
      * @return string
@@ -26,6 +32,23 @@ class AlbumSearch
     {
         $this->text = $text;
     }
+
+    /**
+     * @return Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param Category $category
+     */
+    public function setCategory(Category $category)
+    {
+        $this->category = $category;
+    }
+
 
 
 }

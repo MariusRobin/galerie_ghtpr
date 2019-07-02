@@ -48,7 +48,9 @@ class AlbumController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     public function listAction()
     {
         $albums = $this->albumRepository->findAll();
-        $this->view->assign('albums', $albums);
+        $categories = $this->categoryRepository->findAll();
+        $search = new AlbumSearch();
+        $this->view->assignMultiple(['albums' => $albums, 'categories' => $categories, 'search' => $search]);
     }
 
     /**
@@ -77,8 +79,8 @@ class AlbumController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function searchAction(AlbumSearch $search)
     {
-        $categories =
+        $categories = $this->categoryRepository->findAll();
         $albums = $this->albumRepository->search($search);
-        $this->view->assign('albums', $albums);
+        $this->view->assignMultiple(['albums' => $albums, 'categories' => $categories, 'search' => $search]);
     }
 }

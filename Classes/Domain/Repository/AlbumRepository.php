@@ -58,7 +58,17 @@ class AlbumRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
             }
             $constraints[] = $query->logicalOr($constraintProp);
         }
-        $query->matching($query->logicalAnd($constraints));
+
+        if ($search->getCategory()){
+            $category = $search->getCategory();
+            $constraints[] = $query->contains('categories',$category);
+        }
+
+        if (count($constraints)){
+            $query->matching($query->logicalAnd($constraints));
+        }
+
+        DebuggerUtility::var_dump($search);
         return $query->execute();
     }
 }
