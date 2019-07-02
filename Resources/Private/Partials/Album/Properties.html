@@ -12,4 +12,12 @@
 		<f:image image="{image.file}"></f:image>
 </f:for><br>
 
+<br>
+Les catégories de cet album:
+<ul>
+	<f:for each="{album.categories}" as="category" key="label">
+		<li><f:link.action action="show" pageUid="{settings.detailCategory}" controller="Category" arguments="{category : category}">{category.name}</f:link.action></li>
+	</f:for>
+</ul>
+
 </html>
