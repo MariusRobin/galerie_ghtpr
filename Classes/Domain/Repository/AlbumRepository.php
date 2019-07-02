@@ -21,4 +21,10 @@ namespace Ghtpr\GalerieGhtpr\Domain\Repository;
  */
 class AlbumRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
+    public function albumByCateg($categ){
+        $query = $this->createQuery();
+        $query->matching($query->contains('categories', $categ));
+        return $query->execute();
+
     }
+}

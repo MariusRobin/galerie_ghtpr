@@ -1,22 +1,45 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-	<f:layout name="Default" />
+<f:layout name="Default" />
 
-	This Template is responsible for displaying a single view for a domain object
+This Template is responsible for displaying a single view for a domain object
 
-	If you modify this template, do not forget to change the overwrite settings
-	in /Configuration/ExtensionBuilder/settings.yaml:
-	  Resources:
-		Private:
-		  Templates:
-			Show.html: keep
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+Show.html: keep
 
-		Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
-		<f:section name="content">
-		<h1>{category.name}</h1>
+<f:section name="content">
+	<h1>{category.name}</h1>
+	<style>
+		.main_container {
+			display: inline;
+			padding-top: 30px;
+		}
+		.icon{
+			width: 50px;
+			height: 50px;
+		}
+	</style>
+	<f:flashMessages />
+	<div>{category.description -> f:format.htmlentitiesDecode(encoding: 'UTF-8')}</div>
 
-		<f:flashMessages />
-		<div>{category.description -> f:format.htmlentitiesDecode(encoding: 'UTF-8')}</div>
-		<f:link.action action="list">Back to list</f:link.action><br />
-	</f:section>
+	<h2>Les albums</h2>
+	<div class="main_container">
+		<f:for each="{AlbumByategorie}" as="album">
+			<div>
+				<f:link.action action="show" arguments="{album : album}">
+					<f:image src="EXT:galerie_ghtpr/Resources/Public/img/folder.png" alt="alt text" class="icon" />
+				</f:link.action>
+				<f:link.action action="show" controller="Album" pageUid="{settings.detailAlbum}" arguments="{album : album}"> {album.name}</f:link.action>
+				<!--<f:link.action action="show" arguments="{album : album}"> {album.publishedDate -> f:format.date()}</f:link.action>-->
+			</div><br>
+		</f:for>
+	</div>
+	<f:link.action action="list">Back to list</f:link.action><br />
+
+</f:section>
 </html>
