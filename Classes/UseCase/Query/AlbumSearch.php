@@ -44,7 +44,7 @@ class AlbumSearch
     /**
      * @param Category $category
      */
-    public function setCategory(Category $category)
+    public function setCategory(Category $category = null)
     {
         $this->category = $category;
     }
