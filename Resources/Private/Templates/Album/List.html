@@ -74,25 +74,12 @@ Otherwise your changes will be overwritten the next time you save the extension 
         }
         
     </style>
-    <h1>Listing for Album</h1>
+    <h1>Liste des albums</h1>
 
     <f:flashMessages/>
 
 
-    <f:widget.paginate objects="{albums}" as="paginatedAlbums"
-                       configuration="{itemsPerPage: 5, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 10}">
-        <div class="main_container">
-            <f:for each="{paginatedAlbums}" as="album">
-                <div>
-                    <f:link.action action="show" arguments="{album : album}">
-                        <f:image src="EXT:galerie_ghtpr/Resources/Public/img/folder.png" alt="alt text" class="icon" />
-                    </f:link.action>
-                    <f:link.action action="show" arguments="{album : album}"> {album.name}</f:link.action>
-                    <!--<f:link.action action="show" arguments="{album : album}"> {album.publishedDate -> f:format.date()}</f:link.action>-->
-                </div><br>
-            </f:for>
-        </div>
-    </f:widget.paginate>
+
 
 </f:section>
 </html>
