@@ -21,6 +21,15 @@ namespace Ghtpr\GalerieGhtpr\Controller;
  */
 class CategoryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
+
+
+    /**
+     * categoryRepository
+     *
+     * @var \Ghtpr\GalerieGhtpr\Domain\Repository\CategoryRepository
+     * @inject
+     */
+    protected $categoryRepository = null;
     /**
      * action list
      *
