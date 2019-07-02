@@ -1,10 +1,6 @@
 <?php
 namespace Ghtpr\GalerieGhtpr\Domain\Repository;
 
-use Ghtpr\GalerieGhtpr\UseCase\Query\AlbumSearch;
-use TYPO3\CMS\Core\Utility\DebugUtility;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-
 /***
  *
  * This file is part of the "galerie-photo-cms" Extension for TYPO3 CMS.
@@ -31,7 +27,8 @@ class AlbumRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      * @return QueryResultInterface|array
      * @api
      */
-    public function getLatest(int $nbAlbums = 5){
+    public function getLatest(int $nbAlbums = 5)
+    {
         $query = $this->createQuery();
         $query->setOrderings(
             [
@@ -40,6 +37,12 @@ class AlbumRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         );
 
         $query->setLimit($nbAlbums);
+        return $query->execute();
+    }
+
+    public function getAlbumByAuthor(\Ghtpr\GalerieGhtpr\Domain\Model\Author $author){
+        $query = $this->createQuery();
+        $query->matching($query->contains('author', $author));
         return $query->execute();
     }
 
@@ -67,8 +70,13 @@ class AlbumRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         if (count($constraints)){
             $query->matching($query->logicalAnd($constraints));
         }
+        return $query->execute();
+    }
 
-        DebuggerUtility::var_dump($search);
+    public function albumByCateg($categ)
+    {
+        $query = $this->createQuery();
+        $query->matching($query->contains('categories', $categ));
         return $query->execute();
     }
 }

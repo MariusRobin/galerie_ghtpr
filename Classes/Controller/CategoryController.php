@@ -35,10 +35,26 @@ class CategoryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      *
      * @return void
      */
+
+    /**
+     * albumRepository
+     *
+     * @var \Ghtpr\GalerieGhtpr\Domain\Repository\AlbumRepository
+     * @inject
+     */
+    protected $albumRepository = null;
+    /**
+     * action list
+     *
+     * @return void
+     */
+
     public function listAction()
     {
+
         $categories = $this->categoryRepository->findAll();
         $this->view->assign('categories', $categories);
+
     }
 
     /**
@@ -50,5 +66,7 @@ class CategoryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
     public function showAction(\Ghtpr\GalerieGhtpr\Domain\Model\Category $category)
     {
         $this->view->assign('category', $category);
+        $AlbumByategorie = $this->albumRepository->albumByCateg($category);
+        $this->view->assign('AlbumByategorie', $AlbumByategorie);
     }
 }

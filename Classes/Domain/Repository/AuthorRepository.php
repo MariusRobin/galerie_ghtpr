@@ -1,6 +1,7 @@
 <?php
 namespace Ghtpr\GalerieGhtpr\Domain\Repository;
 
+
 /***
  *
  * This file is part of the "galerie-photo-cms" Extension for TYPO3 CMS.

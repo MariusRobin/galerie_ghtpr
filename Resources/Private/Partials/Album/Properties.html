@@ -1,25 +1,15 @@
 <html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<table class="tx-galerie-ghtpr" >
-	<tr>
-		<td>
-			<f:translate key="tx_galerieghtpr_domain_model_album.name" />
-		</td>
-		<td>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_galerieghtpr_domain_model_album.description" />
-		</td>
-		<td>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_galerieghtpr_domain_model_album.published_date" />
-		</td>
-		<td>
-		</td>
-	</tr>
-</table>
+
+<h1>{album.name}</h1><br>
+
+<h6><span style="text-decoration: underline;">Description :</span></h6>
+<p> {album.description -> f:format.htmlentitiesDecode(encoding: 'UTF-8')} </p><br>
+
+<h6><span style="text-decoration: underline;">Publié le : </span></h6>
+<p> {album.publishedDate -> f:format.date()}</p><br>
+
+<f:for each="{album.images}" as="image" key="label">
+		<f:image image="{image.file}"></f:image>
+</f:for><br>
+
 </html>

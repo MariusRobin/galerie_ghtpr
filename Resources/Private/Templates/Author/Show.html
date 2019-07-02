@@ -13,11 +13,60 @@
 	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 	<f:section name="content">
-		<h1>Single View for Author</h1>
+		<style>
+			div.name{
+				font-size: 25px;
+			}
+			.infolabel{
+				color: #a1a1a1;
+			}
+		</style>
+		<h1>Detail d'un auteur</h1>
+		<f:link.action action="list">Retourner à la liste</f:link.action><br />
 
 		<f:flashMessages />
-		<f:render partial="Author/Properties" arguments="{author:author}" />
-		<f:link.action action="list">Back to list</f:link.action><br />
-		<f:link.action action="new">New Author</f:link.action>
+		<div class="name">{author.firstname -> f:format.htmlentitiesDecode(encoding: 'UTF-8')} {author.lastname -> f:format.htmlentitiesDecode(encoding: 'UTF-8')}</div>
+		<div class="infolabel">Travail :</div>
+		<div>{author.job -> f:format.htmlentitiesDecode(encoding: 'UTF-8')}
+			<f:if condition="{author.job} == ''">
+				-
+			</f:if>
+		</div>
+		<div class="infolabel">Mail :</div>
+		<div>{author.email -> f:format.htmlentitiesDecode(encoding: 'UTF-8')}
+			<f:if condition="{author.email} == ''">
+				-
+			</f:if>
+		</div>
+		<div class="infolabel">Site web</div>
+		<div>{author.website -> f:format.htmlentitiesDecode(encoding: 'UTF-8')}
+			<f:if condition="{author.website} == ''">
+				-
+			</f:if>
+		</div>
+		<div class="infolabel">Numéro de téléphone :</div>
+		<div>{author.phone_number -> f:format.htmlentitiesDecode(encoding: 'UTF-8')}
+			<f:if condition="{author.phone_number} == ''">
+				-
+			</f:if>
+		</div>
+		<div class="infolabel">Adresse :</div>
+		<div>{author.address -> f:format.htmlentitiesDecode(encoding: 'UTF-8')}
+			<f:if condition="{author.address} == ''">
+				-
+			</f:if>
+		</div>
+		<div class="infolabel">Biographie :</div>
+		<div>{author.biography -> f:format.htmlentitiesDecode(encoding: 'UTF-8')}
+			<f:if condition="{author.biography} == ''">
+				-
+			</f:if>
+		</div>
+		<div class="infolabel">Liste des albums de cet auteur :</div>
+		<div>
+			<f:for each="{author.albums}" as="album">
+				<li><f:link.action action="show" pageUid="{settings.detailAlbum}" controller="Album" arguments="{album : album}">{album.name}</f:link.action></li>
+			</f:for>
+		</div>
 	</f:section>
 </html>
