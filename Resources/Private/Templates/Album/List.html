@@ -12,9 +12,6 @@
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 <f:section name="content">
-    <f:render partial="Album/searchForm" arguments="{categories: categories, search: search}"/>
-    <f:render arguments="{albums: albums}" partial="Album/showList"/>
-
     <style>
         .f3-widget-paginator {
             display: inline-block;
@@ -72,9 +69,12 @@ Otherwise your changes will be overwritten the next time you save the extension 
             width: 50px;
             height: 50px;
         }
-        
+
     </style>
     <h1>Liste des albums</h1>
+    <f:render partial="Album/searchForm" arguments="{categories: categories, search: search}"/>
+    <f:render arguments="{albums: albums}" partial="Album/showList"/>
+
 
     <f:flashMessages/>
 
