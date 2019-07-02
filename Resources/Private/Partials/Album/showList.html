@@ -1,0 +1,22 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+    <f:flashMessages />
+
+    <table  class="tx_galerieghtpr" >
+        <tr>
+            <th><f:translate key="tx_galerieghtpr_domain_model_album.name" /></th>
+            <th><f:translate key="tx_galerieghtpr_domain_model_album.description" /></th>
+            <th><f:translate key="tx_galerieghtpr_domain_model_album.published_date" /></th>
+            <th> </th>
+            <th> </th>
+        </tr>
+
+        <f:for each="{albums}" as="album">
+            <tr>
+                <td><f:link.action action="show" arguments="{album : album}"> {album.name}</f:link.action></td>
+                <td><f:link.action action="show" arguments="{album : album}"> {album.description}</f:link.action></td>
+                <td><f:link.action action="show" arguments="{album : album}"> {album.publishedDate -> f:format.date()}</f:link.action></td>
+            </tr>
+        </f:for>
+    </table>
+</html>
