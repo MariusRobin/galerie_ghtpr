@@ -1,6 +1,10 @@
 <?php
 namespace Ghtpr\GalerieGhtpr\Domain\Repository;
 
+use Ghtpr\GalerieGhtpr\UseCase\Query\AlbumSearch;
+use TYPO3\CMS\Core\Utility\DebugUtility;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+
 /***
  *
  * This file is part of the "galerie-photo-cms" Extension for TYPO3 CMS.
