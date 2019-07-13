@@ -71,7 +71,10 @@ class AlbumController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function latestAction()
     {
-
+        $nbItemsToShow = $this->settings['inbItemsToShow'] ? int($this->settings['inbItemsToShow']) : 5;
+        $albums = $this->albumRepository->getLatest($nbItemsToShow);
+        DebuggerUtility::var_dump($albums);
+        $this->view->assign('latest_albums', $albums);
     }
 
     /**

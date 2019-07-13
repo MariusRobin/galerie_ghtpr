@@ -1,6 +1,8 @@
 <?php
 namespace Ghtpr\GalerieGhtpr\Controller;
 
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+
 /***
  *
  * This file is part of the "galerie-photo-cms" Extension for TYPO3 CMS.
@@ -22,12 +24,22 @@ namespace Ghtpr\GalerieGhtpr\Controller;
 class ImageController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
     /**
+     * imageRepository
+     *
+     * @var \Ghtpr\GalerieGhtpr\Domain\Repository\ImageRepository
+     * @inject
+     */
+    protected $imageRepository = null;
+
+    /**
      * action latest
      *
      * @return void
      */
     public function latestAction()
     {
-
+        $nbItemsToShow = $this->settings['inbItemsToShow'] ? int($this->settings['inbItemsToShow']) : 5;
+        $images = $this->imageRepository->getLatest($nbItemsToShow);
+        $this->view->assign('latest_images', $images);
     }
 }
